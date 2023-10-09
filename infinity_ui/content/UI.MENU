@@ -11333,7 +11333,7 @@ menu
 			cheatAreaDisplayList = cheatAreasTutorial
 		elseif game:GetMissionPackInfoTBP() then
 			cheatAreaDisplayList = cheatAreasArena
-		elseif startEngine:GetCampaign() == 3 then
+		elseif game:GetMissionPackInfo25() then
 			cheatAreaDisplayList = cheatAreasExpansion
 		else
 			cheatAreaDisplayList = cheatAreas
