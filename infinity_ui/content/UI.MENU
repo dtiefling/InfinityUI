@@ -20927,6 +20927,7 @@ menu
 	--}
 	button
 	{
+		on escape
 		area 1292 18 42 42
 		bam rgdbtcls
 		ScaleToClip
