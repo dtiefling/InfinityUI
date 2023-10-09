@@ -21923,9 +21923,11 @@ menu
 		local res = 1
 		for i = 0, 15, 1 do
 			
-			if loot.groupItems[i].item['name'] == nil then
-				res = 0
-				break
+			if loot.groupItems[i].item ~= nil then
+				if loot.groupItems[i].item['name'] == nil then
+					res = 0
+					break
+				end
 			end
 		end
 		return res
