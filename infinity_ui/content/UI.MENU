@@ -22589,13 +22589,14 @@ end
 
 function rgGetQlSlotIndex(index)
 	local junk = 0
-	if RgQuicklootFilterJunk == 1 then
-		if worldScreen:GetTopGroundItem() == 0 then
-			junk = rgQuicklootJunkTable[index+1]
-		else
-			junk = rgQuicklootJunkTable[index+1] + rgQuicklootJunkTable[worldScreen:GetTopGroundItem()]
+	if rgQuicklootJunkTable[index+1] ~= nil then
+		if RgQuicklootFilterJunk == 1 then
+			if worldScreen:GetTopGroundItem() == 0 or rgQuicklootJunkTable[worldScreen:GetTopGroundItem()] == nil then
+				junk = rgQuicklootJunkTable[index+1]
+			else
+				junk = rgQuicklootJunkTable[index+1] + rgQuicklootJunkTable[worldScreen:GetTopGroundItem()]
+			end
 		end
-		
 	end
 	return index+junk
 end
