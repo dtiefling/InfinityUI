@@ -32730,125 +32730,99 @@ menu
 	align center center
 	ignoreesc
 	modal
-	onOpen 
+	onOpen
 	"
 		currentHLASelection = nil
 	"
 	label
 	{
-		area	0 0 768 768
-		bam rgdbccg1
-		frame 0
-		scaleToClip
+		area 0 0 864 710
+		mosaic RGGHLA
 	}
 	label
 	{
-		area	597 0 768 768
-		bam rgdbccg1
-		frame 1
-		scaleToClip
-	}
-	label
-	{
-		area 146 36 1074 44
+		area 74 10 716 52
 		text "HIGH_LEVEL_ABILITIES_TITLE"
-		text style	'button'
+		text style "title"
 	}
 	label
 	{
-		area 100 100 526 52
+		area 54 122 760 44
 		text lua "chargen.numHLAs"
-		text style "rg_trajan"
+		text style "normal"
 		align center center
 	}
 	text
 	{
-		area 664 100 592 552
-		text lua "chargenHLADescription()"
+		area 534 190 290 422
+		text lua "Infinity_FetchString(chargenHLADescription())"
 		text style "normal"
-		scrollbar	'rgpscrl'
+		scrollbar	'GUISCRC'
 	}
-	
+
 	list
 	{
 		column
 		{
-			width 80
-			label
-			{	
-				enabled "chargen.HLAs[currentHLASelection] == chargen.HLAs[rowNumber]"
-				area 0 0 -1 -1
-				bam rgpslct
-				ScaleToClip
-			}
+			width 15
+
 			label
 			{
-				area 0 0 52 52 
-				bam "RGDSLOT" 
-				sequence lua "RgUISkin"
-				scaleToClip
+				bam GUIBTBUT
+				area 0 0 52 52
+				align center center
 				icon lua "chargen.HLAs[rowNumber].icon"
 				glow lua "chargen.HLAs[rowNumber].count > 0"
 				count lua "chargen.HLAs[rowNumber].count"
 			}
+		}
+		column
+		{
+			width 61
 			label
 			{
-				area 60 0 -1 -1
+				area 4 0 -1 -1
 				text lua "Infinity_FetchString(chargen.HLAs[rowNumber].name)"
 				text style "normal"
 				align left center
-				
+
 			}
 		}
-		--column
-		--{
-		--	width 61
-		--	label
-		--	{
-		--		area 4 0 -1 -1
-		--		text lua "Infinity_FetchString(chargen.HLAs[rowNumber].name)"
-		--		text style "normal"
-		--		align left center
-		--		
-		--	}
-		--}
 		column
 		{
-			width 10
+			width 12
 			label
 			{
-				area 0 4 44 44
-				bam rgdcpbt1
-				scaleToClip
+				area 0 4 45 42
+				bam GUIOSW
 				frame lua "chargenHLAPlusMinusFrame(3, rowNumber)"
+				sequence 0
 			}
 		}
 		column
 		{
-			width 10
+			width 12
 			label
 			{
-				area 0 4 44 44
-				bam rgdcpbt2
-				scaleToClip
+				area 0 4 45 42
+				bam GUIOSW
 				frame lua "chargenHLAPlusMinusFrame(4, rowNumber)"
+				sequence 1
 
 			}
 		}
 
 
-		scrollbar	'rgpscrl'
+		scrollbar	'GUISCRC'
 		rowheight 52
-		hideHighlight
-		area 100 168 526 484
+		area 58 194 414 404
 		table "chargen.HLAs"
 		var currentHLASelection
-		action 
+		action
 		"
-			print(chargen.HLAs[currentHLASelection].count)
-			if cellNumber == 2 and chargenHLAPlusMinusFrame(3, currentHLASelection) ~= 3 then
+			if cellNumber == 3 and chargenHLAPlusMinusFrame(3, currentHLASelection) ~= 3 then
 				createCharScreen:OnHLAButtonClick(currentHLASelection, 1)
-			elseif cellNumber == 3 and chargenHLAPlusMinusFrame(4, currentHLASelection) ~= 3 then
+			elseif cellNumber == 4 and chargenHLAPlusMinusFrame(4, currentHLASelection) ~= 3 then
 				createCharScreen:OnHLAButtonClick(currentHLASelection, -1)
 			end
 			cellNumber = nil
@@ -32856,13 +32830,12 @@ menu
 	}
 	button
 	{
-		area 524 661 320 70
-		bam		rgdmbut1
-		ScaleToClip
+		area 322 642 230 44
+		bam GUIBUTMT
 		text "DONE_BUTTON"
 		text style "button"
 		clickable lua "createCharScreen:IsDoneButtonClickable()"
-		action 
+		action
 		"
 			createCharScreen:OnDoneButtonClick()
 		"
