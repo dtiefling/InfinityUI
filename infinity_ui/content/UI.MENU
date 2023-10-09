@@ -14039,15 +14039,17 @@ function rgBookSpellRightClick(slotid)
 end
 function rgBottomSpellLeftClick(level,slotid)
 	setMageBookLevel(level)
-	if findMemorizedUncastable(bottomSpells[slotid].resref) == -1 and Infinity_GetOption(41, 9) ~= 0 then
-		popup2Button(11824, 'REMOVE_BUTTON', function() unmemorizeMageSpell(slotid) end, 'CANCEL_BUTTON')
-	else
-		--if rgMX[level] == 0 then
-		--	rgCurrentBottomSpellSlot = 'rgBottomSpell' .. level .. slotid
-		--else
-		--	rgCurrentBottomSpellSlot = 'rgBottomSpell' .. level .. slotid-rgMX[level]
-		--end
-		unmemorizeMageSpell(level,slotid)
+	if bottomSpells ~= nil then
+		if findMemorizedUncastable(bottomSpells[slotid].resref) == -1 and Infinity_GetOption(41, 9) ~= 0 then
+			popup2Button(11824, 'REMOVE_BUTTON', function() unmemorizeMageSpell(slotid) end, 'CANCEL_BUTTON')
+		else
+			--if rgMX[level] == 0 then
+			--	rgCurrentBottomSpellSlot = 'rgBottomSpell' .. level .. slotid
+			--else
+			--	rgCurrentBottomSpellSlot = 'rgBottomSpell' .. level .. slotid-rgMX[level]
+			--end
+			unmemorizeMageSpell(level,slotid)
+		end
 	end
 end
 
