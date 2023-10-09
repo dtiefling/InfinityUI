@@ -6837,6 +6837,7 @@ menu
 	}
 	button
 	{
+		on return
 		area	548 26 50 50
 		bam rgdwbut
 		sequence 0 
