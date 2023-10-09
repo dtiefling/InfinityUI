@@ -31237,7 +31237,7 @@ menu
 			setStringTokenLua('<SCHOOLTOKEN>',t('NECROMANCY_SCHOOL_TOKEN'))
 		elseif currentKitName == rgGetGameEngineString(25326,25326,12745,12745) then
 			setStringTokenLua('<SCHOOLTOKEN>',t('TRANSMUTATION_SCHOOL_TOKEN'))
-		elseif currentKitName == rgGetGameEngineString(25327,25327,,) then
+		elseif currentKitName == rgGetGameEngineString(25327,25327,54893,34656) then
 			setStringTokenLua('<SCHOOLTOKEN>',rgGetGameEngineString(25327,25327,54893,34656))
 		end
 		
