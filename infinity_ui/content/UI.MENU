@@ -20940,6 +20940,14 @@ menu
 			storeScreen:OnMainDoneButtonClick()
 		"
 	}
+	button
+	{
+		on return
+		action
+		"
+			storeScreen:OnMainDoneButtonClick()
+		"
+	}
 	--button
 	--{
 	--	enabled "storeScreen:GetPanelButtonEnabled(0)"
