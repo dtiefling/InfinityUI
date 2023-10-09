@@ -32,7 +32,7 @@ styles =
 	normal =
 	{
 		color = 'B',
-		font = 'RGFONT',
+		font = 'POSTANTI',
 		point = 13,
 		valign = 'top',
 		halign = 'left',
@@ -78,7 +78,7 @@ styles =
 	normal_parchment =
 	{
 		color = '5',
-		font = 'RGFONT',
+		font = 'POSTANTI',
 		point = 13,
 		valign = 'top',
 		halign = 'left',
