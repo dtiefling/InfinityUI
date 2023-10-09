@@ -16209,7 +16209,8 @@ function refreshPriestBook()
 		currentSpellLevel = 1
 	end
 	if characters[id].hasClericBook then
-			rgBookPriestSpells = characters[id].priestSpells[currentSpellLevel]
+		rgBookPriestSpells = characters[id].priestSpells[currentSpellLevel]
+		if rgBookPriestSpells ~= nil then
 			local rgSpellCountDiv = #(rgBookPriestSpells)/3
 			if rgIsNthNumber(#(rgBookPriestSpells)+1,3) == false then
 				rgSpellCountDiv = rgSpellCountDiv+1
@@ -16266,9 +16267,10 @@ function refreshPriestBook()
 			if characters[id].priestDetails[6].maxMemorized > 13 then table.insert(rgBottomSpells,{rgBottomSpells6,characters[id].priestDetails[6].maxMemorized,6,14}) end
 			table.insert(rgBottomSpells,{rgBottomSpells7,characters[id].priestDetails[7].maxMemorized,7,1})
 			if characters[id].priestDetails[7].maxMemorized > 13 then table.insert(rgBottomSpells,{rgBottomSpells7,characters[id].priestDetails[7].maxMemorized,7,14}) end
-			
-		else
-			bookSpells = characters[id].priestSpells[currentSpellLevel]
+		end
+	else
+		bookSpells = characters[id].priestSpells[currentSpellLevel]
+		if bookSpells ~= nil then
 			local rgSpellCountDiv = #(bookSpells)/3
 			if rgIsNthNumber(#(bookSpells)+1,3) == false then
 				rgSpellCountDiv = rgSpellCountDiv+1
@@ -16303,6 +16305,7 @@ function refreshPriestBook()
 			rgBottomSpellsPlaceHolder6 = {} 
 			rgBottomSpellsPlaceHolder7 = {} 
 		end
+	end
 end
 
 
