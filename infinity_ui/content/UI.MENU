@@ -9897,13 +9897,13 @@ menu
 		align left center
 		text color '$'
 	}
-	--text
-	--{
-	--	area 160 738 1044 30
-	--	text lua "TEXT_inventoryError"
-	--	scrollbar 'rgdscrl1'
-	--	text style normal
-	--}
+	text
+	{
+		area 160 747 1044 30
+		text lua "TEXT_inventoryError"
+		scrollbar 'rgdscrl1'
+		text style "rg_normal_small"
+	}
 	
 	label {area 602 546 72 72 name 'rginvslotback1'	bam "RGDISLOT" ScaleToClip}
 	label {area 602 622 72 72 name 'rginvslotback2'	bam "RGDISLOT" ScaleToClip}
