@@ -27580,6 +27580,12 @@ function rgGetChargenArea()
 	end
 	
 end
+function rgEmptyIfNil(s)
+	if s == nil then
+		return ''
+	end
+	return s
+end
 function rgGetChargenInfo(step)
 	
 	local s = chargen.information
@@ -27589,11 +27595,11 @@ function rgGetChargenInfo(step)
 	end
 	
 	if step == 1 then
-		return list[1]
+		return rgEmptyIfNil(list[1])
 	elseif step == 2 then
-		return list[2] .. '\n' .. list[3] .. '\n' .. list[4]
+		return rgEmptyIfNil(list[2]) .. '\n' .. rgEmptyIfNil(list[3]) .. '\n' .. rgEmptyIfNil(list[4])
 	elseif step == 3 then
-		return list[5] .. '\n' .. list[6] .. '\n' .. list[7] .. '\n' .. list[8] .. '\n' .. list[9] .. '\n' .. list[10]
+		return rgEmptyIfNil(list[5]) .. '\n' .. rgEmptyIfNil(list[6]) .. '\n' .. rgEmptyIfNil(list[7]) .. '\n' .. rgEmptyIfNil(list[8]) .. '\n' .. rgEmptyIfNil(list[9]) .. '\n' .. rgEmptyIfNil(list[10])
 	elseif step == 4 then
 		for i = 1, 12, 1 do
 			s = string.gsub(s, '^[^\n]*\n', '')
@@ -28443,7 +28449,7 @@ menu
 				Infinity_PopMenu('CHARGEN_GENDER'); 
 				createCharScreen:OnDoneButtonClick()
 				Infinity_PopMenu('CHARGEN_PORTRAIT');
-		else
+		elseif currentPortrait ~= nil then
 			for index = 1, currentPortrait-1, 1 do
 				createCharScreen:IncCurrentPortrait()
 			end
@@ -28717,8 +28723,8 @@ menu
 		ScaleToClip
 		text "DONE_BUTTON"
 		text style "button"
-		clickable "false"
-		action "createCharScreen:OnDoneButtonClick() createCharScreen:OnMenuButtonClick()"
+		clickable lua "false"
+		action "createCharScreen:OnDoneButtonClick(); createCharScreen:OnMenuButtonClick()"
 	}
 
 }
@@ -28883,7 +28889,7 @@ menu
 		ScaleToClip
 		text "DONE_BUTTON"
 		text style "button"
-		clickable "false"
+		clickable lua "false"
 		action "createCharScreen:OnDoneButtonClick(); Infinity_PopMenu('CHARGEN_CLASS'); "
 	}
 
@@ -29101,7 +29107,7 @@ menu
 		ScaleToClip
 		text "DONE_BUTTON"
 		text style "button"
-		clickable "false"
+		clickable lua "false"
 		action "Infinity_PopMenu(); createCharScreen:OnDoneButtonClick()"
 	}
 
@@ -32533,7 +32539,7 @@ menu
 	{
 		on escape
 		area 196 653 230 40
-		clickable false
+		clickable lua "false"
 		bam GUIBUTMT
 		text "BACK_BUTTON"
 		text style "button"
